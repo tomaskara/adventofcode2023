@@ -1,3 +1,5 @@
+import math
+
 with open('input.txt', 'r') as f:
     lines = f.read().splitlines()
 
@@ -36,19 +38,4 @@ for key in nodes_dict.keys():
         continue
 
 
-def nsd(a, b):
-    while b:
-        a, b = b, a % b
-    return a
-
-
-def nsn(a, b):
-    return a * b // nsd(a, b)
-
-
-result = nsn(ways[0], ways[1])
-
-for number in ways[2:]:
-    result = nsn(result, number)
-
-print(result)
+print(math.lcm(*ways))
